@@ -122,6 +122,7 @@ namespace UI
             //Shows a messagebox to inform that a user has been added
             MessageBox.Show("Bruger er oprette");
 
+            //Load datagrid with new data 
             LoadPlayerDtg();
         }
 
@@ -144,6 +145,7 @@ namespace UI
             //Shows a messagebox to inform that a user´s data has been edited
             MessageBox.Show("Bruger data er blevet ændret");
 
+            //Load datagrid with new data 
             LoadPlayerDtg();
         }
 
@@ -166,22 +168,82 @@ namespace UI
             //Shows a messagebox to inform that a player has been deleted
             MessageBox.Show("Bruger er blevet fjernet");
 
+            //Load datagrid with new data 
             LoadPlayerDtg();
         }
 
         #endregion
 
         #region Reservation
+        /// <summary>
+        /// Represent a method for creating reservation data 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnAddReservation_Click(object sender, RoutedEventArgs e)
+        {
+            //Represent a object of HTK_DatabaseEntities called _context, used for access to database
+            HTK_DatabaseEntities _context = new HTK_DatabaseEntities();
+
+            //Represent a object of Create called _create, used for access to DataAccess, used for CRUD 
+            Create _create = new Create();
+
+            //Used to take input from user to make a new pitch
+            _create.CreateReservation(TbStartReservation.Text, TbEndReservation.Text);
+
+            //Shows a messagebox to inform user, that a pitch has been created
+            MessageBox.Show("Bane er blevet oprette");
+
+            //Load datagrid with new data 
+            LoadReservationDtg();
+        }
+
+        /// <summary>
+        /// Represent a method for editing 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnEditReservation_Click(object sender, RoutedEventArgs e)
+        {
+            //Represent a object of HTK_DatabaseEntities called _context, used for access to database
+            HTK_DatabaseEntities _context = new HTK_DatabaseEntities();
+
+            //Represent a object of Edit, used for access to DataAccess to use for CRUD
+            Edit _edit = new Edit();
+            
+            //used to take a input of user to select a specifik reservation, and edit that reservation´s data
+            _edit.EditReservation(Convert.ToInt32(TbIdReservation.Text), TbStartReservation.Text, TbEndReservation.Text);
+
+            //Shows a messagebox to inform user that a reservation´s data has been changed
+            MessageBox.Show("reservation data er blevet ændret");
+
+            //Load datagrid with new data
+            LoadPitchDtg();
+        }
+
+        private void BtnFjernReservation_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
         #endregion
 
         #region Pitch
-
-        #endregion
-
         private void BtnAddPitch_Click(object sender, RoutedEventArgs e)
         {
 
         }
-    }
+
+        private void BtnEditPitch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnFjernPitch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+
+    }   
 }
