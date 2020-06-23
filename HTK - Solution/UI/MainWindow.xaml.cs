@@ -168,6 +168,7 @@ namespace UI
 
             LoadPlayerDtg();
         }
+
         #endregion
 
         #region Reservation
@@ -178,6 +179,9 @@ namespace UI
 
         #endregion
 
+        private void BtnAddPitch_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }

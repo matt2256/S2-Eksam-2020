@@ -54,42 +54,42 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classification.cs">
-      <DependentUpon>HTK_Entities.tt</DependentUpon>
+      <DependentUpon>HTK_DatabaseEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="HTK_Entities.Context.cs">
+    <Compile Include="HTK_DatabaseEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HTK_Entities.Context.tt</DependentUpon>
+      <DependentUpon>HTK_DatabaseEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="HTK_Entities.cs">
+    <Compile Include="HTK_DatabaseEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HTK_Entities.tt</DependentUpon>
+      <DependentUpon>HTK_DatabaseEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="HTK_Entities.Designer.cs">
+    <Compile Include="HTK_DatabaseEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HTK_Entities.edmx</DependentUpon>
+      <DependentUpon>HTK_DatabaseEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Pitch.cs">
-      <DependentUpon>HTK_Entities.tt</DependentUpon>
+      <DependentUpon>HTK_DatabaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Player.cs">
-      <DependentUpon>HTK_Entities.tt</DependentUpon>
+      <DependentUpon>HTK_DatabaseEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservation.cs">
-      <DependentUpon>HTK_Entities.tt</DependentUpon>
+      <DependentUpon>HTK_DatabaseEntities.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="HTK_Entities.edmx">
+    <EntityDeploy Include="HTK_DatabaseEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HTK_Entities.Designer.cs</LastGenOutput>
+      <LastGenOutput>HTK_DatabaseEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="HTK_Entities.edmx.diagram">
-      <DependentUpon>HTK_Entities.edmx</DependentUpon>
+    <None Include="HTK_DatabaseEntities.edmx.diagram">
+      <DependentUpon>HTK_DatabaseEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -97,15 +97,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HTK_Entities.Context.tt">
+    <Content Include="HTK_DatabaseEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HTK_Entities.edmx</DependentUpon>
-      <LastGenOutput>HTK_Entities.Context.cs</LastGenOutput>
+      <DependentUpon>HTK_DatabaseEntities.edmx</DependentUpon>
+      <LastGenOutput>HTK_DatabaseEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="HTK_Entities.tt">
+    <Content Include="HTK_DatabaseEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HTK_Entities.edmx</DependentUpon>
-      <LastGenOutput>HTK_Entities.cs</LastGenOutput>
+      <DependentUpon>HTK_DatabaseEntities.edmx</DependentUpon>
+      <LastGenOutput>HTK_DatabaseEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
