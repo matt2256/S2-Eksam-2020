@@ -5,8 +5,137 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="PlayerSource"/>
+        <CollectionViewSource x:Key="PitchSource"/>
+        <CollectionViewSource x:Key="ReservationSource"/>
+    </Window.Resources>
     <Grid>
-        
+        <TabControl>
+            <!--Represent the tab for player information. Adding, deleting and editing that data-->
+            <TabItem>
+                <!--Represent the header, whats information is displayed for the specifik header-->
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="PLAYER"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <!--Represent the grid, that controls where each element is placed-->
+                <Grid Background="LightGray">
+                    <!--Grid control definitions-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="18*"/>
+                        <ColumnDefinition Width="81*"/>
+                        <ColumnDefinition Width="99*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="98*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--Elements in the grid-->
+                    <DataGrid Grid.Column="4" Grid.ColumnSpan="5" Grid.Row="0" Grid.RowSpan="11" Margin="10" x:Name="DtgPlayerInfo" DataContext="{StaticResource PlayerSource}" ItemsSource="{Binding}"/>
+                </Grid>
+            </TabItem>
+            <!--Represent the tab for pitch information. Adding, deleting and editing that data-->
+            <TabItem>
+                <!--Represent the header, whats information is displayed for the specifik header-->
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="PITCH"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Background="LightGray">
+                    <!--Grid control definitions-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="18*"/>
+                        <ColumnDefinition Width="81*"/>
+                        <ColumnDefinition Width="99*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="98*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--Elements in the grid-->
+                    <DataGrid Grid.Column="4" Grid.ColumnSpan="5" Grid.Row="0" Grid.RowSpan="11" Margin="10" x:Name="DtgPitchInfo" DataContext="{StaticResource PitchSource}" ItemsSource="{Binding}"/>
+                </Grid>
+            </TabItem>
+            <!--Represent the tab for reservation. Adding, deleting and editing that data-->
+            <TabItem>
+                <!--Represent the header, whats information is displayed for the specifik header-->
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="RESERVATION"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Background="LightGray">
+                    <!--Grid control definitions-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="18*"/>
+                        <ColumnDefinition Width="81*"/>
+                        <ColumnDefinition Width="99*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="98*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--Elements in the grid-->
+                    <DataGrid Grid.Column="4" Grid.ColumnSpan="5" Grid.Row="0" Grid.RowSpan="11" Margin="10" x:Name="DtgReservationInfo" DataContext="{StaticResource ReservationSource}" ItemsSource="{Binding}"/>
+                </Grid>
+            </TabItem>
+            <!--Represent the tab for classifications, DONT KNOW IF IT NEED TO BE HERE!!! -->
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="CLASSIFICATION"/>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

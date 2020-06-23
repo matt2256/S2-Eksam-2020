@@ -20,9 +20,37 @@ namespace UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Window
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Represent a method that fires a eventhandler called Window_loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region Window load methods
+
+        #endregion
+
+        #region Player
+
+        #endregion
+
+        #region Reservation
+
+        #endregion
+
+        #region Pitch
+
+        #endregion
     }
 }
