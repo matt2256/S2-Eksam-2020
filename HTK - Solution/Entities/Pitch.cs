@@ -14,10 +14,17 @@ namespace Entities
     
     public partial class Pitch
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Pitch()
+        {
+            this.Reservations = new HashSet<Reservation>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public Nullable<int> Reservation { get; set; }
     
-        public virtual Reservation Reservation1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }

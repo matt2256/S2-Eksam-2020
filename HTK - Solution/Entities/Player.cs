@@ -27,7 +27,7 @@ namespace Entities
         public string Adress { get; set; }
         public string CellNumbers { get; set; }
         public string Email { get; set; }
-        public string Birthday { get; set; }
+        public Nullable<System.DateTime> Birthday { get; set; }
         public Nullable<int> Classification_Id { get; set; }
         public Nullable<int> Reservation { get; set; }
     

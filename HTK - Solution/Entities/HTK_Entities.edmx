@@ -29,7 +29,7 @@
           <Property Name="Adress" Type="varchar" MaxLength="50" />
           <Property Name="CellNumbers" Type="varchar" MaxLength="50" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
-          <Property Name="Birthday" Type="varchar" MaxLength="50" />
+          <Property Name="Birthday" Type="datetime" />
           <Property Name="Classification Id" Type="int" />
           <Property Name="Reservation" Type="int" />
         </EntityType>
@@ -182,7 +182,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Reservation" Type="Int32" />
-          <NavigationProperty Name="Reservation1" Relationship="Self.FK_Pitch_Reservation" FromRole="Pitch" ToRole="Reservation" />
+          <NavigationProperty Name="Reservations" Relationship="Self.FK_Reservation_Pitch" FromRole="Pitch" ToRole="Reservation" />
         </EntityType>
         <EntityType Name="Player">
           <Key>
@@ -193,7 +193,7 @@
           <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CellNumbers" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Birthday" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
           <Property Name="Classification_Id" Type="Int32" />
           <Property Name="Reservation" Type="Int32" />
           <NavigationProperty Name="Classifications" Relationship="Self.FK_Classification_Player" FromRole="Player" ToRole="Classification" />
@@ -210,9 +210,9 @@
           <Property Name="Player_one" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Player_two" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Pitch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Pitches" Relationship="Self.FK_Pitch_Reservation" FromRole="Reservation" ToRole="Pitch" />
+          <NavigationProperty Name="Pitch1" Relationship="Self.FK_Reservation_Pitch" FromRole="Reservation" ToRole="Pitch" />
           <NavigationProperty Name="Player" Relationship="Self.FK_Reservation_Player1" FromRole="Reservation" ToRole="Player" />
-          <NavigationProperty Name="Player2" Relationship="Self.FK_Reservation_Player2" FromRole="Reservation" ToRole="Player" />
+          <NavigationProperty Name="Player1" Relationship="Self.FK_Reservation_Player2" FromRole="Reservation" ToRole="Player" />
         </EntityType>
         <Association Name="FK_Classification_Player">
           <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
@@ -226,15 +226,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Pitch_Reservation">
-          <End Role="Reservation" Type="Self.Reservation" Multiplicity="0..1" />
-          <End Role="Pitch" Type="Self.Pitch" Multiplicity="*" />
+        <Association Name="FK_Reservation_Pitch">
+          <End Role="Pitch" Type="Self.Pitch" Multiplicity="0..1" />
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Reservation">
-              <PropertyRef Name="Id" />
+            <Principal Role="Pitch">
+              <PropertyRef Name="Name" />
             </Principal>
-            <Dependent Role="Pitch">
-              <PropertyRef Name="Reservation" />
+            <Dependent Role="Reservation">
+              <PropertyRef Name="Pitch" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -271,9 +271,9 @@
             <End Role="Player" EntitySet="Players" />
             <End Role="Classification" EntitySet="Classifications" />
           </AssociationSet>
-          <AssociationSet Name="FK_Pitch_Reservation" Association="Self.FK_Pitch_Reservation">
-            <End Role="Reservation" EntitySet="Reservations" />
+          <AssociationSet Name="FK_Reservation_Pitch" Association="Self.FK_Reservation_Pitch">
             <End Role="Pitch" EntitySet="Pitches" />
+            <End Role="Reservation" EntitySet="Reservations" />
           </AssociationSet>
           <AssociationSet Name="FK_Reservation_Player1" Association="Self.FK_Reservation_Player1">
             <End Role="Player" EntitySet="Players" />

@@ -14,12 +14,6 @@ namespace Entities
     
     public partial class Reservation
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Reservation()
-        {
-            this.Pitches = new HashSet<Pitch>();
-        }
-    
         public int Id { get; set; }
         public string Start { get; set; }
         public string End { get; set; }
@@ -27,9 +21,8 @@ namespace Entities
         public string Player_two { get; set; }
         public string Pitch { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pitch> Pitches { get; set; }
+        public virtual Pitch Pitch1 { get; set; }
         public virtual Player Player { get; set; }
-        public virtual Player Player2 { get; set; }
+        public virtual Player Player1 { get; set; }
     }
 }
