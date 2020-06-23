@@ -50,7 +50,7 @@ namespace DataAccess
             //Adding a _client to the Player table in the database 
             _context.Players.Add(_client);
 
-            //Saving the changes made to the database
+            //Saves changes made to database
             _context.SaveChanges();
         }
 
@@ -74,9 +74,9 @@ namespace DataAccess
             };
 
             //Adding a _reservation to the Reservation table in the database
-            _context.Reservations.Add(_reservation);
+            _context.Reservations.Add(_reservation);;
 
-            //Save changes made to the database
+            //Saves changes made to database
             _context.SaveChanges();
         }
 
@@ -98,7 +98,7 @@ namespace DataAccess
             //Adding a _pitch to Pitch table in the database
             _context.Pitches.Add(_pitch);
 
-            //Save changes made to the database
+            //Saves changes made to database
             _context.SaveChanges();
         }
     }
