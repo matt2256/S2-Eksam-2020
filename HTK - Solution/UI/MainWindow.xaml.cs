@@ -192,7 +192,7 @@ namespace UI
             _create.CreateReservation(TbStartReservation.Text, TbEndReservation.Text);
 
             //Shows a messagebox to inform user, that a pitch has been created
-            MessageBox.Show("Bane er blevet oprette");
+            MessageBox.Show("Reservation er blevet oprette");
 
             //Load datagrid with new data 
             LoadReservationDtg();
@@ -215,7 +215,7 @@ namespace UI
             _edit.EditReservation(Convert.ToInt32(TbIdReservation.Text), TbStartReservation.Text, TbEndReservation.Text);
 
             //Shows a messagebox to inform user that a reservation´s data has been changed
-            MessageBox.Show("reservation data er blevet ændret");
+            MessageBox.Show("Reservation data er blevet ændret");
 
             //Load datagrid with updatated data
             LoadReservationDtg();
