@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Entities;
 using DataAccess;
 using System.Data.Entity;
+using API;
 
 namespace UI
 {
@@ -312,5 +313,12 @@ namespace UI
         }
         #endregion
 
+        private void BtnGetWeather_Click(object sender, RoutedEventArgs e)
+        {
+            API.Control _control = new API.Control();
+            API.Control _key = new API.Control();
+
+            _control.GetWeather(TbCity.Text, _key.ApiKey(), TbWeatherStatus.Text, TbWeatherStausDetailed.Text, TbTemperature.Text, TbTempFeelsLike.Text, TbHumidity.Text, TbWindSpeed.Text, TbCountry.Text);
+        }
     }   
 }
