@@ -199,7 +199,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Represent a method for editing 
+        /// Represent a method for editing reservation data
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -217,13 +217,31 @@ namespace UI
             //Shows a messagebox to inform user that a reservation´s data has been changed
             MessageBox.Show("reservation data er blevet ændret");
 
-            //Load datagrid with new data
-            LoadPitchDtg();
+            //Load datagrid with updatated data
+            LoadReservationDtg();
         }
 
+        /// <summary>
+        /// Represent a method for deleting reservation data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnFjernReservation_Click(object sender, RoutedEventArgs e)
         {
+            //Represent a object of HTK_DatabaseEntities called _context, used for access to database
+            HTK_DatabaseEntities _context = new HTK_DatabaseEntities();
 
+            //Represent a object of Delete called _delete, used to access DataAccess to use CRUD
+            Delete _delete = new Delete();
+
+            //used to take input of user to select a specifik player, and delete´s that player
+            _delete.DeleteReservation(Convert.ToInt32(TbIdReservation.Text));
+
+            //Shows a messagebox, to inform user that a reservation has been removed
+            MessageBox.Show("Reservation er blevet fjernet");
+
+            //Load datagrid with updatated data
+            LoadReservationDtg();
         }
 
         #endregion
