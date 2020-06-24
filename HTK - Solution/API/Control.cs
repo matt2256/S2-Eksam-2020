@@ -17,7 +17,7 @@ namespace API
 
             try
             {
-                using (StreamReader _sr = new StreamReader("ApiKey.txt"))
+                using (StreamReader _sr = new StreamReader("C:\\Users\\mads758e\\Source\\Repos\\S2-Eksam-2020\\HTK - Solution\\API\\ApiKey.txt"))
                 {
                     line = _sr.ReadLine();
                 }
@@ -50,13 +50,13 @@ namespace API
             try
             {
                 //using WebClient to make a object called _web
-                using (WebClient _web = new WebClient())
+                using (WebClient web = new WebClient())
                 {
                     //Sets url to web address and formats it to a string
                     string url = string.Format($"api.openweathermap.org/data/2.5/weather?q={_cityName}&appid={_key}");
 
                     //Sets json to use _web to use .DownloadString and pareses url 
-                    var json = _web.DownloadString(url);
+                    var json = web.DownloadString(url);
 
                     //Makes a object of WeatherInfo.root called _output and converts url json to a .net object stored in WeatherInfo.root
                     WeatherInfo.root _output = JsonConvert.DeserializeObject<WeatherInfo.root>(json);
@@ -82,12 +82,14 @@ namespace API
             {
                 Console.WriteLine("En eller anden fjel");
                 Console.WriteLine(e);
+
             }
-            catch (ArgumentException a)
+            catch(ArgumentException a)
             {
-                Console.WriteLine("Ugyldig url");
+                Console.WriteLine("ugyndig url");
                 Console.WriteLine(a);
             }
+
         }
     }
 }
