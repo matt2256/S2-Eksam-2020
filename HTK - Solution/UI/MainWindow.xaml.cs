@@ -246,20 +246,69 @@ namespace UI
 
         #endregion
 
+        /// <summary>
+        /// Represent a method for creating new pitch data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         #region Pitch
         private void BtnAddPitch_Click(object sender, RoutedEventArgs e)
         {
+            //Represent a object of HTK_DatabaseEntities called _context, used for access to database
+            HTK_DatabaseEntities _context = new HTK_DatabaseEntities();
 
+            //Represent a object of Create called _create, used for access to DataAccess to use CRUD
+            Create _create = new Create();
+
+            //Used to take input from user, to make a new pitch
+            _create.CreatePitch(TbNamePitch.Text);
+
+            //Shows a messagebox to inform the user, that a new pitch has been made
+            MessageBox.Show("Bane er blevet oprettet");
+
+            //Load datagrid with new data
+            LoadPitchDtg();
         }
 
         private void BtnEditPitch_Click(object sender, RoutedEventArgs e)
         {
+            //Represent a object of HTK_DatabaseEntities called _context used for access to database
+            HTK_DatabaseEntities _context = new HTK_DatabaseEntities();
 
+            //Represen a object of Edit called _edit, used for access to DataAccess to use for CRUD
+            Edit _edit = new Edit();
+
+            //Used to take input of user to select a specifik pitch and change that pitch´s data
+            _edit.EditPitch(Convert.ToInt32(TbIdPitch.Text), TbNamePitch.Text);
+
+            //Shows a messagebox to inform a user, that a pitch´s data has been changed 
+            MessageBox.Show("Bane data er blevet ændret");
+
+            //Load datagrid with updated data
+            LoadPitchDtg();
         }
 
+        /// <summary>
+        /// Represent a method for deleting pitch data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnFjernPitch_Click(object sender, RoutedEventArgs e)
         {
+            //Represent a object of HTK_DatabaseEntities called _context, used for acces to database
+            HTK_DatabaseEntities _context = new HTK_DatabaseEntities();
 
+            //Represent a object of Delete called _delete, used for access to DataAccess to use for CRUD
+            Delete _delete = new Delete();
+
+            //Used to take a input of user to select a specifik pitch and delete that´s pitches data
+            _delete.DeletePitch(Convert.ToInt32(TbIdPitch.Text));
+
+            //Shows a messagebox to inform user, that a pitch has been removed
+            MessageBox.Show("Bane er blevet fjernet");
+
+            //Load datagrid with updated data
+            LoadPitchDtg();
         }
         #endregion
 
