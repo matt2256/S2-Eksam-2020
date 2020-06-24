@@ -14,7 +14,10 @@ namespace API
         /// </summary>
         public class coord
         {
+            //Represent the longditude
             public double Ion { get; set; }
+
+            //Represent the laditude
             public double lat { get; set; }
         }
         
@@ -23,7 +26,10 @@ namespace API
         /// </summary>
         public class weather
         {
+            //Represent the current Weather status
             public string main { get; set; }
+
+            //Represent the current weather status in more detail
             public string description { get; set; }
         }
 
@@ -32,8 +38,13 @@ namespace API
         /// </summary>
         public class main
         {
+            //Represent the current temperature
             public double temp { get; set; }
+
+            //Represent what the current weather feels like
             public double feels_like { get; set; }
+
+            //Represent what the current humidity is 
             public double humidity { get; set; }
         }
 
@@ -42,6 +53,7 @@ namespace API
         /// </summary>
         public class wind
         {
+            //Represent what the current wind speed is 
             public double speed { get; set; }
         }
 
@@ -50,6 +62,7 @@ namespace API
         /// </summary>
         public class sys
         {
+            //Represent what the country is
             public string country { get; set; }
         }
 
@@ -60,7 +73,7 @@ namespace API
         {
             public string name { get; set; }
             public double dt { get; set; }
-            public List<weather> Weathers { get; set; }
+            public weather weather { get; set; }
             public coord coord { get; set; }
             public main main { get; set; }
             public wind wind { get; set; }
