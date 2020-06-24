@@ -1,2 +1,2 @@
 # S2-Eksam-2020
-How to bully Patrick
+How to make Patrick proud
